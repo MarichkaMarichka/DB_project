@@ -26,7 +26,7 @@ public class UsersRepository {
     //-------------------------------------------------------------
     public void addUser(String name,String password) {
         try {
-            final PreparedStatement statement = this.connection.prepareStatement("insert into users (name,password,address) values ('" + name + "','"+password+"')");
+            final PreparedStatement statement = this.connection.prepareStatement("insert into users (name,password) values ('" + name + "','"+password+"')");
             statement.executeUpdate();
             statement.close();
         } catch (SQLException e) {
