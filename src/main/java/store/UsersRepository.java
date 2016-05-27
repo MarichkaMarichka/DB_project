@@ -24,11 +24,17 @@ public class UsersRepository {
     }
 
     //-------------------------------------------------------------
-    public void addUser(String name,String password) {
+    public void addUser(String name,String password,String address) {
         try {
-            final PreparedStatement statement = this.connection.prepareStatement("insert into users (name,password) values ('" + name + "','"+password+"')");
-            statement.executeUpdate();
-            statement.close();
+            final PreparedStatement uStatement = this.connection.prepareStatement("insert into users (name,password) values ('" + name + "','"+password+"')");
+            uStatement.executeUpdate();
+            uStatement.close();
+            final Statement statement = this.connection.createStatement();
+            final ResultSet rs = statement.executeQuery("select * from users where name = '"+name+"' and password = '"+password+"'");
+            rs.next();
+            final PreparedStatement aStatement = this.connection.prepareStatement("insert into address (address,user_id) values ('" + address + "','"+rs.getInt(1)+"')");
+            aStatement.executeUpdate();
+            aStatement.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -59,11 +65,5 @@ public class UsersRepository {
             e.printStackTrace();
         }
         return exist;
-    }
-    //----------------------------------------------
-    public static void main(String []args) {
-        UsersRepository storage = new UsersRepository();
-        storage.addUser("1","1");
-        System.out.println(storage.searchUser("m","m"));
     }
 }

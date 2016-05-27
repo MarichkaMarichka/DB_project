@@ -16,7 +16,7 @@ public class LoginServlet extends HttpServlet {
         String addr = req.getParameter("addr");
 
         UsersRepository storage = new UsersRepository();
-        storage.addUser(usr,psw);
+        storage.addUser(usr,psw,addr);
         if(storage.searchUser(usr,psw)==true){
             resp.sendRedirect(getServletContext().getContextPath() + "/homePage.jsp");
         }else

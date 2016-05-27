@@ -11,6 +11,7 @@
 <form action="LoginServlet" method="POST">
 	Login:<input type="text" name="user" />
 	Password:<input/ type="text" name="pass">
+	Address:<input/ type="text" name="addr">
 
 	<input type="submit" name="enter" value="Log in" />
 </form>

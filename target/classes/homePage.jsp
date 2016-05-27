@@ -15,26 +15,16 @@
 <form action="message.jsp" method="POST">
         <button type="submit">WRITE</button>
 </form>
-<table border="1">
 
 <%
 MessageRepository storage = new MessageRepository();
 List list = storage.selectAllMessages();
-int i = 0;%>
-<tr>
-            <td>user</td>
-            <td>text</td>
-</tr>
-<% while(i < list.size()){
-    if(i%2==0){ %>
-        <% }%>
-           <tr>
-            <td><%= list.get(i) %></td>
-            <% i++;  %>
-            <td><a href="singleMess.jsp"><%= list.get(i) %></a></td>
-          </tr>
-<% i++; } %>
-</table>
+
+%>
+<%= list.get(1)%>
+
+
+
 </body>
 </html>
 

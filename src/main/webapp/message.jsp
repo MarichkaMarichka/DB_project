@@ -7,10 +7,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-    <form action="LoginServlet" method="POST">
-        To:<input name="addr" />
-        Text:<input/ type="text" name="text">
-	    <input type="submit" name="enter" value="Send" />
+    <form action="MessageServlet" method="POST">
+        To  :<input name="addr" />
+        <br>
+        Text:<input/ type="text" style="height:200px;width:300pt;" name="text">
+        <br>
+	         <input type="submit" name="enter" value="Send" />
 	</form>
 </body>
 </html>

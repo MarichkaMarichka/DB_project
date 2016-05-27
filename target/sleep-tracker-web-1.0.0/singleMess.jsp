@@ -12,29 +12,21 @@
 </head>
 <body>
 
-<form action="message.jsp" method="POST">
-        <button type="submit">WRITE</button>
-</form>
 <table border="1">
 
 <%
 MessageRepository storage = new MessageRepository();
-List list = storage.selectAllMessages();
+List list = storage.getMessages();
 int i = 0;%>
-<tr>
-            <td>user</td>
-            <td>text</td>
-</tr>
-<% while(i < list.size()){
-    if(i%2==0){ %>
-        <% }%>
            <tr>
             <td><%= list.get(i) %></td>
             <% i++;  %>
-            <td><a href="singleMess.jsp"><%= list.get(i) %></a></td>
+            <td><%= list.get(i) %></td>
           </tr>
-<% i++; } %>
 </table>
+
+
+
 </body>
 </html>
 
